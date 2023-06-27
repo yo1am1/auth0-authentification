@@ -1,0 +1,7 @@
+authlib ~= 1.2
+python-dotenv ~= 1.0
+requests ~= 2.31
+django>=4.2,<5.0
+gunicorn>=20.0,<21.0
+dj-database-url>=2.0,<3.0
+whitenoise[brotli]>=6.0,<7.0
