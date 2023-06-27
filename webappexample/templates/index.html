@@ -7,9 +7,9 @@
 {% if session %}
     <h1>Welcome, {{ session.userinfo.name }}!</h1>
     <pre><img src="{{ picture }}"></pre>
-    <pre>Nickname: {{ nickname }}</pre>
-    <pre>Email: {{ email }}</pre>
-    <pre>Varified: {{ email_varified }}</pre>
+    <pre>nickname: {{ nickname }}</pre>
+    <pre>email: {{ email }}</pre>
+    <pre>varificated: {{ email_varified }}</pre>
     <br>
     <p><a href="{% url 'logout' %}" id="qsLogoutBtn">Logout</a></p>
 

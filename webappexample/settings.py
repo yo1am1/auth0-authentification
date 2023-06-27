@@ -13,19 +13,21 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, "webappexample", "templates")
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET_KEY")
+# SECRET_KEY = os.environ.get(
+#     "DJANGO_SECRET_KEY",
+#     default=secrets.token_urlsafe(nbytes=64),
+# )
+SECRET_KEY = "auth0-webappexample-k0n4a#6cqu9=co$_bu^^sd@&^8#*%ukg3z4ku!lj&j)%^@cx8%"
 
 # The `DYNO` env var is set on Heroku CI, but it's not a real Heroku app, so we have to
 # also explicitly exclude CI:
 # https://devcenter.heroku.com/articles/heroku-ci#immutable-environment-variables
 IS_HEROKU_APP = "DYNO" in os.environ and not "CI" in os.environ
 
+DEBUG = True
 # SECURITY WARNING: don't run with debug turned on in production!
 if not IS_HEROKU_APP:
     DEBUG = True
-    SECRET_KEY = (
-        "auth0-webappexample-k0n4a#6cqu9=co$_bu^^sd@&^8#*%ukg3z4ku!lj&j)%^@cx8%"
-    )
 
 # On Heroku, it's safe to use a wildcard for `ALLOWED_HOSTS``, since the Heroku router performs
 # validation of the Host header in the incoming HTTP request. On other platforms you may need
@@ -134,19 +136,13 @@ WHITENOISE_KEEP_ONLY_HASHED_FILES = True
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Load environment definition file
-#
-# ENV_FILE = find_dotenv()
-# if ENV_FILE:
-#     load_dotenv(ENV_FILE)
+
+ENV_FILE = find_dotenv()
+if ENV_FILE:
+    load_dotenv(ENV_FILE)
 
 # Load Auth0 application settings into memory
 
-AUTH0_DOMAIN = os.getenv("AUTH0_DOMAIN")
-# AUTH0_DOMAIN = "dev-126azcbbl68m4ntd.us.auth0.com"
-AUTH0_CLIENT_ID = os.getenv("AUTH0_CLIENT_ID")
-# AUTH0_CLIENT_ID = "VT3DRud6xrsKJxWpd0qiu31B2VWi1Wh2"
-AUTH0_CLIENT_SECRET = os.getenv("AUTH0_CLIENT_SECRET")
-# AUTH0_CLIENT_SECRET = "yFNCdfkN1si8KYefaZ6XIdHQXdPw8jarnE904eU2S4b4HgGBjo8cTfzlFy-p99kp"
-AUTH0_CALLBACK_URL = os.getenv("AUTH0_CALLBACK_URL")
-# AUTH0_CALLBACK_URL = "https://whispering-savannah-63663-f0c58aed78d4.herokuapp.com/callback"
-# AUTH0_CALLBACK_URL = "http://127.0.0.1:3000/callback"
+AUTH0_DOMAIN = os.environ.get("AUTH0_DOMAIN")
+AUTH0_CLIENT_ID = os.environ.get("AUTH0_CLIENT_ID")
+AUTH0_CLIENT_SECRET = os.environ.get("AUTH0_CLIENT_SECRET")
