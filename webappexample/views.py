@@ -25,7 +25,10 @@ def index(request):
         ).replace('"', "")
         context = {
             "session": request.session.get("user"),
-            "pretty": json.dumps(request.session.get("user"), indent=4),
+            # "pretty": json.dumps(request.session.get("user")["userinfo"], indent=4),
+            "nickname": request.session.get("user")["userinfo"]["nickname"],
+            "email_varified": request.session.get("user")["userinfo"]["email_verified"],
+            "email": request.session.get("user")["userinfo"]["email"],
             "picture": url,
         }
         return render(request, "index.html", context)
