@@ -147,3 +147,4 @@ AUTH0_DOMAIN = "dev-126azcbbl68m4ntd.us.auth0.com"
 AUTH0_CLIENT_ID = "VT3DRud6xrsKJxWpd0qiu31B2VWi1Wh2"
 # AUTH0_CLIENT_SECRET = os.getenv("AUTH0_CLIENT_SECRET")
 AUTH0_CLIENT_SECRET = "yFNCdfkN1si8KYefaZ6XIdHQXdPw8jarnE904eU2S4b4HgGBjo8cTfzlFy-p99kp"
+AUTH0_CALLBACK_URL = "https://whispering-savannah-63663-f0c58aed78d4.herokuapp.com/callback"
