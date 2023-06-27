@@ -23,6 +23,7 @@ IS_HEROKU_APP = "DYNO" in os.environ and not "CI" in os.environ
 # SECURITY WARNING: don't run with debug turned on in production!
 if not IS_HEROKU_APP:
     DEBUG = True
+    SECRET_KEY = "auth0-webappexample-k0n4a#6cqu9=co$_bu^^sd@&^8#*%ukg3z4ku!lj&j)%^@cx8%"
 
 # On Heroku, it's safe to use a wildcard for `ALLOWED_HOSTS``, since the Heroku router performs
 # validation of the Host header in the incoming HTTP request. On other platforms you may need
@@ -138,6 +139,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Load Auth0 application settings into memory
 
-AUTH0_DOMAIN = os.getenv("AUTH0_DOMAIN")
-AUTH0_CLIENT_ID = os.getenv("AUTH0_CLIENT_ID")
-AUTH0_CLIENT_SECRET = os.getenv("AUTH0_CLIENT_SECRET")
+# AUTH0_DOMAIN = os.getenv("AUTH0_DOMAIN")
+AUTH0_DOMAIN = "dev-126azcbbl68m4ntd.us.auth0.com"
+# AUTH0_CLIENT_ID = os.getenv("AUTH0_CLIENT_ID")
+AUTH0_CLIENT_ID = "VT3DRud6xrsKJxWpd0qiu31B2VWi1Wh2"
+# AUTH0_CLIENT_SECRET = os.getenv("AUTH0_CLIENT_SECRET")
+AUTH0_CLIENT_SECRET = "yFNCdfkN1si8KYefaZ6XIdHQXdPw8jarnE904eU2S4b4HgGBjo8cTfzlFy-p99kp"
