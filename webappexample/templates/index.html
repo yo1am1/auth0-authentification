@@ -8,8 +8,8 @@
     <h1>Welcome, {{ session.userinfo.name }} ({{ nickname }})!</h1>
 
     <pre><img src="{{ picture }}"></pre>
-    <pre>Email: {{ email }}(varificated: {{ email_varified }})</pre>
-
+    <pre>Email: {{ email }} (varificated: {{ email_varified }})</pre>
+<h1>Congratulations! You are in!</h1>
     <br>
     <p><a href="{% url 'logout' %}" id="qsLogoutBtn">Logout</a></p>
 
