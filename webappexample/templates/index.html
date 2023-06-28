@@ -62,7 +62,7 @@
 <body>
 <form>
 {% if session %}
-    <h1 class="display-1">Welcome, {{ session.userinfo.name }} ({{ nickname }})!</h1>
+    <h1 class="display-4">Welcome, {{ session.userinfo.name }} ({{ nickname }})!</h1>
 
     <pre><img src="{{ picture }}"></pre>
     <h3 class="display-4">
@@ -73,7 +73,7 @@
     <p><a href="{% url 'logout' %}" id="qsLogoutBtn" class="btn btn-success btn-lg btn-block">Logout</a></p>
 
 {% else %}
-    <h1 id="profileDropDown" class="display-1">Welcome Guest</h1>
+    <h1 id="profileDropDown" class="display-4">Welcome Guest</h1>
     <p><a href="{% url 'login' %}" id="qsLoginBtn" class="btn btn-success btn-lg btn-block">Login</a></p>
 {% endif %}
 </form>
