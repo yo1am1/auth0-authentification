@@ -17,14 +17,13 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, "webappexample", "templates")
 #     "DJANGO_SECRET_KEY",
 #     default=secrets.token_urlsafe(nbytes=64),
 # )
-SECRET_KEY = "auth0-webappexample-k0n4a#6cqu9=co$_bu^^sd@&^8#*%ukg3z4ku!lj&j)%^@cx8%"
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # The `DYNO` env var is set on Heroku CI, but it's not a real Heroku app, so we have to
 # also explicitly exclude CI:
 # https://devcenter.heroku.com/articles/heroku-ci#immutable-environment-variables
 IS_HEROKU_APP = "DYNO" in os.environ and not "CI" in os.environ
 
-DEBUG = True
 # SECURITY WARNING: don't run with debug turned on in production!
 if not IS_HEROKU_APP:
     DEBUG = True
