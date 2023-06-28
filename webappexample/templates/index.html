@@ -61,21 +61,25 @@
 </head>
 <body>
 <form>
-{% if session %}
-    <h1 class="display-4">Welcome, {{ session.userinfo.name }} <div><h3>({{ nickname }})!</h3></div></h1>
+    {% if session %}
+        <h1>Welcome, {{ session.userinfo.name }}
+            <div><h3>({{ nickname }})!</h3></div>
+        </h1>
 
-    <pre><img src="{{ picture }}"></pre>
-    <h3>
-        <pre>Email: {{ email }} (varificated: {{ email_varified }})</pre>
-    </h3>
-    <h2>Congratulations! You are in!</h2>
-    <br>
-    <p><a href="{% url 'logout' %}" id="qsLogoutBtn" class="btn btn-success btn-lg btn-block">Logout</a></p>
+        <pre><img src="{{ picture }}" alt="avatar"></pre>
+        <h3>
+            <pre>Email: {{ email }} (varificated: {{ email_varified }})</pre>
+            <pre>Varificated: {{ email_varified }}</pre>
+        </h3>
 
-{% else %}
-    <h1 id="profileDropDown" class="display-4">Welcome Guest</h1>
-    <p><a href="{% url 'login' %}" id="qsLoginBtn" class="btn btn-success btn-lg btn-block">Login</a></p>
-{% endif %}
+        <h2>Congratulations! You are in!</h2>
+        <br>
+        <p><a href="{% url 'logout' %}" id="qsLogoutBtn" class="btn btn-success btn-lg btn-block">Logout</a></p>
+
+    {% else %}
+        <h1 id="profileDropDown" class="display-4">Welcome Guest</h1>
+        <p><a href="{% url 'login' %}" id="qsLoginBtn" class="btn btn-success btn-lg btn-block">Login</a></p>
+    {% endif %}
 </form>
 </body>
 </html>
